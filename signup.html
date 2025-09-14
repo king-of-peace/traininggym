@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('gym image.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .signup-container {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 400px;
+      color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      color: #00aaff;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background: #00aaff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signup-container button:hover {
+      background: #0088cc;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .success {
+      color: #00ff88;
+    }
+
+    .error {
+      color: #ff4444;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Gym Signup</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="plan">Membership Plan</label>
+        <select id="plan" required>
+          <option value="">Select Plan</option>
+          <option value="monthly">Monthly - $30</option>
+          <option value="quarterly">Quarterly - $80</option>
+          <option value="yearly">Yearly - $300</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Create Password</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <button type="submit">Sign Up</button>
+      <p class="message" id="signupMessage"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const signupMessage = document.getElementById("signupMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const plan = document.getElementById("plan").value;
+
+      if (fullname && email && phone && plan) {
+        console.log("New Signup:");
+        console.log("Name:", fullname);
+        console.log("Email:", email);
+        console.log("Phone:", phone);
+        console.log("Plan:", plan);
+
+        signupMessage.textContent = "✅ Signup Successful! Welcome to the Gym 💪";
+        signupMessage.className = "message success";
+        signupMessage.style.display = "block";
+        form.reset();
+      } else {
+        signupMessage.textContent = "❌ Please fill out all fields.";
+        signupMessage.className = "message error";
+        signupMessage.style.display = "block";
+      }
+    });
+  </script>
+
+  <script>
+  const user = JSON.parse(localStorage.getItem("gymUser"));
+  if (user) {
+    document.body.innerHTML += `<p style="color:green;">Welcome back, ${user.fullname}! You are signed up for the ${user.plan} plan.</p>`;
+  }
+</script>
+
+</body>
+</html>

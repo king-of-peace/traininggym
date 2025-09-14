@@ -1,0 +1,52 @@
+.navbar-container{
+    display: flex;
+    gap: 750px;
+    border-style: groove;
+    border-color: blue;
+    border-radius: 50px;
+    color: rgba(243, 240, 255, 0.034);
+    border-width: 10px;
+}
+.h3-container{
+    display: flex;
+    gap: 25px;
+    color: black;
+}
+button{
+    border-radius: 10px;
+    background-color: rgba(132, 0, 255, 0.438);
+}
+ body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .container img {
+    width: 100%;
+    display: block;
+  }
+
+  .navbar {
+    position: absolute; /* Position it over the image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }

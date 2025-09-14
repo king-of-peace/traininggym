@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('gym image.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 400px;
+      color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #00aaff;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background: #00aaff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background: #0088cc;
+    }
+
+    .success-message {
+      text-align: center;
+      margin-top: 15px;
+      color: #00ff88;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Gym Registration</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="plan">Membership Plan</label>
+        <select id="plan" name="plan" required>
+          <option value="">Select Plan</option>
+          <option value="monthly">Monthly - $30</option>
+          <option value="quarterly">Quarterly - $80</option>
+          <option value="yearly">Yearly - $300</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Create Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit">Register</button>
+      <p class="success-message" id="successMsg">✅ Registration Successful!</p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent actual form submission
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const plan = document.getElementById("plan").value;
+
+      console.log("New Gym Registration:");
+      console.log("Name:", fullname);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+      console.log("Plan:", plan);
+
+      // Show success message
+      successMsg.style.display = "block";
+
+      // Clear form
+      form.reset();
+    });
+  </script>
+</body>
+</html>
