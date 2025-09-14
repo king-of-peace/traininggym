@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TRAINING GYM</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .body-container {
+      position: relative;
+      width: 100%;
+      max-width: 1320px;
+      margin: auto;
+    }
+
+    .body-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Navbar */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      z-index: 10;
+    }
+
+    .logo h2 {
+      color: #00aaff;
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    nav .login-btn {
+      background-color: #00aaff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    nav .login-btn:hover {
+      background-color: #0088cc;
+    }
+       nav .signup-btn {
+      background-color: #00aaff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    nav .signup-btn:hover {
+      background-color: #0088cc;
+    }
+
+    /* Center button */
+    .center-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #00aaff;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 6px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 5;
+    }
+
+    .center-btn:hover {
+      background-color: #0088cc;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="body-container">
+    <img src="gym image.jpg" alt="Gym" />
+    
+    <!-- Navbar -->
+    <header>
+      <div class="logo">
+        <h2>TRAINING GYM</h2>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav id="nav-menu">
+        <a href="#">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="skill.html">SKILL</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="login.html"><button class="login-btn">LOGIN</button></a>
+        <a href="signup.html"><button class="signup-btn">SIGN UP</button></a>
+      </nav>
+    </header>
+
+    <!-- Center Button -->
+    <a href="join now.html"><button class="center-btn">JOIN NOW</button></a>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
+
+
