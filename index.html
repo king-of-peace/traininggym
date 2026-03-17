@@ -75,9 +75,16 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
+         @media (max-width: 768px) {
+             .trading-grid {
+              grid-template-columns: 1fr;
+             grid-template-rows: auto;
+             height: auto;
+  }
+}
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 overflow-hidden">
+<body <body class="bg-slate-950 text-slate-200 overflow-x-hidden">>
 
     <!-- SPA Container -->
     <div id="app"></div>
@@ -240,7 +247,7 @@
                                 <i data-lucide="trending-up" class="w-6 h-6 text-blue-400"></i>
                                 NexusTrade
                             </button>
-                            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                            <div class="flex md:flex items-center gap-6 text-sm font-medium">
                                 <button onclick="router.navigate('dashboard')" class="text-slate-400 hover:text-white transition-colors">Dashboard</button>
                                 <button onclick="router.navigate('trading')" class="text-slate-400 hover:text-white transition-colors">Trade</button>
                                 <button onclick="router.navigate('portfolio')" class="text-slate-400 hover:text-white transition-colors">Portfolio</button>
@@ -249,7 +256,7 @@
                         </div>
                         
                         <div class="flex items-center gap-4">
-                            <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <div class="flex md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                                 <span class="text-xs text-slate-400">Balance</span>
                                 <span class="mono font-semibold text-emerald-400">$${store.balance.toLocaleString('en-US', {minimumFractionDigits: 2})}</span>
                             </div>
